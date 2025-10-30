@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Login.MainPage"
+             Title="Login"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="16" Spacing="12"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+            <Grid x:Name="Gridt"
+                  Margin="0">
+                <Label Text="Realize seu Login"
+                   HorizontalOptions="Center"
+                   Margin="20,20,10,10"
+                   FontSize="28"
+                   FontAttributes="Bold">
+
+                </Label>
+                <Label Text="Escolha uma opção para continuar"
+                   HorizontalOptions="Center"
+                   Margin="20,80,10,10"
+                   FontSize="20"
+                   FontAttributes="Bold">
+                </Label>
+
+
+            </Grid>
+
+            <Button Text="Entra"
+                    FontSize="Body"
+                    Margin="20"
+                    WidthRequest="500"
+                    >
+            </Button>
+
+            <Button Text="Criar Conta"
+                    FontSize="Body"
+                    Margin="20,10"
+                    WidthRequest="500"
+                    >
+            </Button>
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
