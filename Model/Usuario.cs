@@ -9,7 +9,7 @@ namespace Login.Model
     public class Usuario
     {
         public string nome { set; get; } 
-        public string password { set; get; }
+        public string Email { set; get; }
         public string senha { set; get; }
     }
 }
