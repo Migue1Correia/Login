@@ -29,18 +29,24 @@
 
             </Grid>
 
+            <Label Text="Digite Seu Email "/>
+            <Entry x:Name="txt_Email"/>
+
+            <Label Text="Digite Sua Senha "/>
+            <Entry x:Name="txt_Senha" IsPassword="True"/>
+
             <Button Text="Entra"
                     FontSize="Body"
                     Margin="20"
                     WidthRequest="500"
-                    >
+                    Clicked="Entrar_Clicked">
             </Button>
 
             <Button Text="Criar Conta"
                     FontSize="Body"
                     Margin="20,10"
                     WidthRequest="500"
-                    Clicked="Button_Clicked">
+                    >
             </Button>
 
 

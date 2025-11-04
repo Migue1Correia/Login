@@ -7,49 +7,65 @@ public partial class Cadastro : ContentPage
     {
         InitializeComponent();
     }
-    //private async void Button_Clicked(object sender, EventArgs e)
-    //{
-    //    try
-    //    {
-    //        List<Usuario> list_usuario = new List<Usuario>()
-    //            {
-    //                new Usuario()
-    //                {
-    //                    nome = "Miguel",
-    //                    Email = "Miguel@12345",
-    //                    senha = "admin123"
-    //                },
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            // ?? Lista local (exemplo)
+            List<Usuario> list_usuario = new List<Usuario>() 
+        {
+            new Usuario()
+            {
+                Nome = "Miguel",
+                Email = "Miguel@12345",
+                Senha = "admin123"
+            },
+            new Usuario()
+            {
+                Nome = "Ana",
+                Email = "Ana@54321",
+                Senha = "user123"
+            }
+        };
 
-    //                new Usuario()
-    //                {
-    //                    nome = "Ana",
-    //                    Email = "Ana@54321",
-    //                    senha = "user123"
-    //                }
-    //            };
+            // ?? Captura os dados digitados
+            string nome = txt_Nome.Text?.Trim();
+            string email = txt_Email.Text?.Trim();
+            string senha = txt_Senha.Text?.Trim();
 
-    //        Usuario dados_digitados = new Usuario()
-    //        {
-    //            nome = txt_Nome.Text,
-    //            senha = txt_Senha.Text,
-    //            Email = txt_Email.Text
-    //        };
-    //        if (list_usuario.Any(i=>dados_digitados.senha ==i.senha && dados_digitados.Email==i.Email)) 
-    //        { 
-    //            await SecureStorage.Default.SetAsync("usuario_logado", dados_digitados.Email);
+            // ?? Validação de campos vazios
+            if (string.IsNullOrEmpty(nome) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
+            {
+                await DisplayAlert("Atenção", "Preencha todos os campos.", "OK");
+                return;
+            }
 
-    //            App.Current.MainPage = new AppShell();
+            // ?? Verifica se já existe um usuário com o mesmo email
+            if (list_usuario.Any(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase)))
+            {
+                await DisplayAlert("Erro", "Este email já está cadastrado.", "OK");
+                return;
+            }
 
-    //        } else 
-    //        {                 
-    //            await DisplayAlert("Atenção", "Usuário ou senha inválidos", "OK"); 
-    //        }
+            // ?? Cria novo usuário e adiciona à lista
+            Usuario dados_digitados = new Usuario()
+            {
+                Nome = nome,
+                Email = email,
+                Senha = senha
+            };
 
+            list_usuario.Add(dados_digitados);
 
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        await DisplayAlert("Error", ex.Message, "OK");
-    //    }
-    //}
+            // ?? Mensagem de sucesso
+            await DisplayAlert("Sucesso", "Cadastro feito com sucesso!", "OK");
+
+            // ?? Volta para a tela anterior (Login)
+            await Shell.Current.GoToAsync("..");
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Erro", ex.Message, "OK");
+        }
+    }
 }

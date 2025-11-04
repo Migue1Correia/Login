@@ -8,8 +8,8 @@ namespace Login.Model
 {
     public class Usuario
     {
-        public string nome { set; get; } 
+        public string Nome { set; get; }
         public string Email { set; get; }
-        public string senha { set; get; }
+        public string Senha { set; get; }
     }
 }

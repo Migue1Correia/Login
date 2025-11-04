@@ -7,8 +7,10 @@
     
     <VerticalStackLayout HorizontalOptions="Center"
                          VerticalOptions="Center"
-                         >
-        <Label Text="Cadastro de Usuario"/>
+                         Spacing="20">
+        <Label Text="Cadastro de Usuario"
+               FontAttributes="Bold"
+               FontSize="28"/>
 
         <Label Text="Digite Seu Nome "/>
         <Entry x:Name="txt_Nome"/>
@@ -19,7 +21,8 @@
         <Label Text="Digite Sua Senha "/>
         <Entry x:Name="txt_Senha" IsPassword="True"/>
 
-        <Button Text="Cadastrar" />
+        <Button Text="Cadastrar"
+                Clicked="Button_Clicked"/>
         
         
     </VerticalStackLayout>
